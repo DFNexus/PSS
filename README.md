@@ -1,3 +1,9 @@
+Danendra Farrel Haryo Wibowo 
+A11.2023.15025
+A11.4618
+
+Tugas1 PSS
+
 # Dokumentasi Tugas: WordPress, MariaDB, dan Redis Stack (Docker Compose)
 
 Proyek ini bertujuan untuk mengimplementasikan infrastruktur Content Management System (CMS) yang scalable dan memiliki performa tinggi menggunakan Docker Compose di lingkungan Debian 13.
