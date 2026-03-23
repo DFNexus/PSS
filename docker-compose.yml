@@ -1,0 +1,38 @@
+services:
+  db:
+    image: mariadb:10.6
+    container_name: pss-db-1
+    restart: always
+    environment:
+      MYSQL_DATABASE: wordpress
+      MYSQL_USER: user_pss
+      MYSQL_PASSWORD: password_pss
+      MYSQL_ROOT_PASSWORD: root_password_pss
+    volumes:
+      - pss_db_data:/var/lib/mysql
+
+  wordpress:
+    depends_on:
+      - db
+      - redis
+    image: wordpress:latest
+    container_name: pss-wordpress-1
+    restart: always
+    ports:
+      - "8080:80"
+    environment:
+      WORDPRESS_DB_HOST: db
+      WORDPRESS_DB_USER: user_pss
+      WORDPRESS_DB_PASSWORD: password_pss
+      WORDPRESS_DB_NAME: wordpress
+    volumes:
+      - pss_wp_data:/var/www/html
+
+  redis:
+    image: redis:alpine
+    container_name: pss-redis-1
+    restart: always
+
+volumes:
+  pss_db_data:
+  pss_wp_data:
